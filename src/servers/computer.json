@@ -29,6 +29,16 @@
       "prixAchat": 100,
       "prixVente": 200,
       "dateEntreeStock": "2020-02-20T15:19:25.766Z"
+    },
+    {
+      "id": 4,
+      "modele": "test",
+      "marque": "Asus",
+      "type": "Portable",
+      "category": "Gaming",
+      "prixAchat": 100,
+      "prixVente": 200,
+      "dateEntreeStock": "2020-02-20T15:50:18.799Z"
     }
   ]
 }
