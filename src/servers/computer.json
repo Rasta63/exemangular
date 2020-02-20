@@ -1,0 +1,34 @@
+{
+  "computers": [
+    {
+      "id": 1,
+      "modele": "Latitude 3500 - 15.6",
+      "marque": "Dell",
+      "type": "Portable",
+      "category": "Bureautique",
+      "prixAchat": 120,
+      "prixVente": 300,
+      "dateEntreeStock": "2012-04-23T18:25:43.511Z"
+    },
+    {
+      "id": 2,
+      "modele": "wdfgb",
+      "marque": "Dell",
+      "type": "Portable",
+      "category": "Gaming",
+      "prixAchat": 125,
+      "prixVente": 200,
+      "dateEntreStock": "2020-02-20T12:46:55.178Z"
+    },
+    {
+      "id": 3,
+      "modele": "test",
+      "marque": "Asus",
+      "type": "Portable",
+      "category": "Gaming",
+      "prixAchat": 100,
+      "prixVente": 200,
+      "dateEntreeStock": "2020-02-20T15:19:25.766Z"
+    }
+  ]
+}

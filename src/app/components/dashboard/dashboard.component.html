@@ -1,0 +1,51 @@
+<ng-container class="text-center" *ngIf="isLoading">
+    <img src="assets/loading.gif" alt="Chargemet en cours">
+</ng-container>
+<ng-container *ngIf="!isLoading">
+    <h1 class="text-center">Gestion du stock d'ordinateur</h1>
+    <h2>Nombre d'ordinateur(s) dans le stock : <span
+            class="bg-primary text-bolt text-danger">{{computers.length}}</span></h2>            
+    <table class="table">
+        <thead class="thead-dark">
+            <tr class="text-center">
+                <th scope="col">#Id</th>
+                <th scope="col">Modele</th>
+                <th scope="col">Marque</th>
+                <th scope="col">Type</th>
+                <th scope="col">Cathegorie</th>
+                <th scope="col">Prix d'achat</th>
+                <th scope="col">Prix de Vente</th>
+                <th scope="col">Rentabilité</th>
+                <th scope="col">Date</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody class="table-striped">
+            <tr *ngFor="let ordi of computers" class="computerLine">
+                <td>{{ordi.id}}</td>
+                <td>{{ordi.modele}}</td>
+                <td>{{ordi.marque}}</td>
+                <td>{{ordi.type}}</td>
+                <td>{{ordi.category}}</td>
+                <td>{{ordi.prixAchat}}</td>
+                <td>{{ordi.prixVente}}</td>
+                <td>{{ordi.prixVente - ordi.prixAchat}}</td>
+                <td>{{ordi.dateEntreeStock | date :"d/MM/y"}}</td>
+                <td>
+                    <a [routerLink]="['/ordinateur',ordi.id]">
+                        <fa-icon [icon]="faInfoCircle"></fa-icon>
+                        Details
+                    </a>
+                    <a class="align-middle mx-2" [routerLink]="['/edit',ordi.id]">
+                        <fa-icon [icon]="faEdit"></fa-icon>
+                        Editer
+                    </a>
+                    <a class="retirerComputer" style="color: red; cursor: pointer;" (click)="retirerComputer(ordi)">
+                        <fa-icon class="ml-3" [icon]="faTrash"></fa-icon>
+                        supprimer
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</ng-container>

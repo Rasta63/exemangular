@@ -1,0 +1,76 @@
+<div class="container">
+    <h1>Ajout d'un nouveau ordianteur</h1>
+
+    <form #computerForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Modele de l'ordinateur*</label>
+        <input #computerInput="ngModel" placeholder="le modele"
+               id="modele" name="modele" type="text" class="form-control"
+               [(ngModel)]="computer.modele" required>
+        <div [hidden]="computerInput.valid" class="alert alert-danger">
+          Le modele de l'ordinateur est requi
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Marque de l'ordinateur*</label> <br>
+        <ng-container *ngFor="let marque of marques">
+          <div>
+            <input class="form-check-input" type="radio" id="{{marque}}"
+                   #marqueValidation="ngModel"
+                   name="marqueDispo" [value]="marque" required [(ngModel)]="computer.marque">
+            <label for="{{marque}}">{{marque}}</label>
+          </div>
+        </ng-container>
+        <div [hidden]="computerForm.controls.marqueDispo?.valid" class="alert alert-danger">
+         La marque de l'ordinateur est requis
+        </div>
+      </div>
+  
+  
+      <div class="form-group">
+        <label>Type de l'ordianteure*</label> <br>
+        <select #type="ngModel" name="type" id="type" [(ngModel)]="computer.type" required class="form-control">
+          <option selected value ="" disabled>--Choissiez le type--</option>
+          <option *ngFor="let type of types" value="{{type}}">{{ type }} </option>
+
+        </select>
+        <div [hidden]="type.valid" class="alert alert-danger">
+          Le type de l'ordinateur est requis
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Categorie de l'ordinateur*</label> <br>
+        <ng-container *ngFor="let categori of categorys">
+          <div>
+            <input type="radio" id="{{categori}}" #categoryValidation="ngModel"
+                   name="categorie" value="{{categori}}" required [(ngModel)]="computer.category">
+            <label for="{{categori}}">{{categori}}</label>
+          </div>
+        </ng-container>
+        <div [hidden]="computerForm.controls.categorie?.valid" class="alert alert-danger">
+         Le categori de l'ordinateur est requis
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Prix d'achat*</label> <br>
+        <input [(ngModel)]="computer.prixAchat" name="prixAchat" id="prixAchat"
+               type="number" min="0" class="form-control" required #prixAchat="ngModel">
+        <div [hidden]="prixAchat.valid" class="alert alert-danger">
+          Le prix d'achat est requis
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Prix de vente*</label> <br>
+        <input [(ngModel)]="computer.prixVente" name="prixVente" id="prixVente" type="number" min="0" class="form-control" required #prixVente="ngModel">
+        <div [hidden]="prixVente.valid" class="alert alert-danger">
+          Le prix d'achat est requis
+        </div>
+      </div>
+      <input id="submitBtn" [disabled]="!computerForm.valid" type="submit" class="btn btn-success" value="Valider">
+  
+    </form>
+  </div>
+  
